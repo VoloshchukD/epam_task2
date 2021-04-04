@@ -3,6 +3,7 @@ package by.epamtc.service;
 import by.epamtc.entity.Ball;
 import by.epamtc.entity.Basket;
 import by.epamtc.entity.Color;
+import by.epamtc.exception.BasketNotPresentException;
 
 public class BasketAction {
 
@@ -12,7 +13,8 @@ public class BasketAction {
         this.basket = basket;
     }
 
-    public int countBallsColor(Color color) {
+    public int countBallsColor(Color color) throws BasketNotPresentException {
+        if (basket == null) throw new BasketNotPresentException("Basket is not created");
         int ballCounter = 0;
         for (Ball ball : basket.getBalls()) {
             if (ball.getColor() == color) {
@@ -22,7 +24,8 @@ public class BasketAction {
         return ballCounter;
     }
 
-    public double sumBallsWeight() {
+    public double sumBallsWeight() throws BasketNotPresentException {
+        if (basket == null) throw new BasketNotPresentException("Basket is not created");
         double ballWeight = 0.0;
         for (Ball ball : basket.getBalls()) {
             ballWeight += ball.getWeight();

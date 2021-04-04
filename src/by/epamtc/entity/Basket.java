@@ -1,22 +1,29 @@
 package by.epamtc.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Basket {
 
     private List<Ball> balls;
 
-    public Basket() {
-        this.balls = new ArrayList<>();
+    public Basket(List<Ball> balls) {
+        this.balls = balls;
     }
 
     public List<Ball> getBalls() {
         return balls;
     }
 
-    public void setBalls(List<Ball> balls) {
-        this.balls = balls;
+    public void addBall(Ball newBall) {
+        balls.add(newBall);
+    }
+
+    public void addBalls(List<Ball> newBalls) {
+        balls.addAll(newBalls);
+    }
+
+    public void removeBall(Ball ball) {
+        balls.remove(ball);
     }
 
     @Override
