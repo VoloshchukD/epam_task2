@@ -1,7 +1,7 @@
 package by.epamtc.entity;
 
+import by.epamtc.exception.BallNotFoundException;
 import by.epamtc.exception.NullBallsException;
-import by.epamtc.exception.NullBasketException;
 
 import java.util.List;
 
@@ -22,14 +22,21 @@ public class Basket {
         balls.add(newBall);
     }
 
-    public void addBalls(List<Ball> newBalls) throws NullBallsException {
+    public void addAllBalls(List<Ball> newBalls) throws NullBallsException {
         if (balls == null) throw new NullBallsException("Balls in basket are not initialized");
         balls.addAll(newBalls);
     }
 
-    public void removeBall(Ball ball) throws NullBallsException {
+    public void removeBall(Ball ball) throws NullBallsException, BallNotFoundException {
         if (balls == null) throw new NullBallsException("Balls in basket are not initialized");
-        balls.remove(ball);
+        if (!balls.remove(ball)) throw new BallNotFoundException("No such ball in the basket");
+    }
+
+    public void removeAllBalls() throws NullBallsException {
+        if (balls == null) throw new NullBallsException("Balls in basket are not initialized");
+        System.out.println(balls);
+        balls.clear();
+        System.out.println(balls);
     }
 
     @Override
