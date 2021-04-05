@@ -3,7 +3,8 @@ package by.epamtc.run;
 import by.epamtc.entity.Ball;
 import by.epamtc.entity.Basket;
 import by.epamtc.entity.Color;
-import by.epamtc.exception.BasketNotPresentException;
+import by.epamtc.exception.NullBallsException;
+import by.epamtc.exception.NullBasketException;
 import by.epamtc.service.BasketAction;
 
 import java.util.ArrayList;
@@ -12,14 +13,18 @@ import java.util.List;
 public class Runner {
     public static void main(String[] args) {
         List<Ball> balls = createBalls();
-        Basket basket = new Basket(new ArrayList<>());
-        basket.addBalls(balls);
+        Basket basket = new Basket(balls);
+        try {
+            basket.addBalls(balls);
+        } catch (NullBallsException e) {
+            System.out.println(e.getMessage());
+        }
         BasketAction basketAction = new BasketAction(basket);
 
         try {
             System.out.println("Количество синих мячиков: " + basketAction.countBallsColor(Color.BLUE));
             System.out.println("Вес мячиков в корзине: " + basketAction.sumBallsWeight());
-        } catch (BasketNotPresentException e) {
+        } catch (NullBasketException e) {
             System.out.println(e.getMessage());
         }
     }

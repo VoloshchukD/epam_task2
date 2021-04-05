@@ -1,5 +1,8 @@
 package by.epamtc.entity;
 
+import by.epamtc.exception.NullBallsException;
+import by.epamtc.exception.NullBasketException;
+
 import java.util.List;
 
 public class Basket {
@@ -14,15 +17,18 @@ public class Basket {
         return balls;
     }
 
-    public void addBall(Ball newBall) {
+    public void addBall(Ball newBall) throws NullBallsException {
+        if (balls == null) throw new NullBallsException("Balls in basket are not initialized");
         balls.add(newBall);
     }
 
-    public void addBalls(List<Ball> newBalls) {
+    public void addBalls(List<Ball> newBalls) throws NullBallsException {
+        if (balls == null) throw new NullBallsException("Balls in basket are not initialized");
         balls.addAll(newBalls);
     }
 
-    public void removeBall(Ball ball) {
+    public void removeBall(Ball ball) throws NullBallsException {
+        if (balls == null) throw new NullBallsException("Balls in basket are not initialized");
         balls.remove(ball);
     }
 
