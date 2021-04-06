@@ -18,6 +18,7 @@ public class Runner {
         basket.addAllBalls(balls);
 
         BasketAction basketAction = new BasketAction(basket);
+        basket.removeBall(basket.getBalls().get(0));
 
         System.out.println("Количество синих мячиков: " + basketAction.countBallsColor(Color.BLUE));
         System.out.println("Вес мячиков в корзине: " + basketAction.sumBallsWeight());

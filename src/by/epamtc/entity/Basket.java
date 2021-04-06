@@ -34,9 +34,7 @@ public class Basket {
 
     public void removeAllBalls() throws NullBallsException {
         if (balls == null) throw new NullBallsException("Balls in basket are not initialized");
-        System.out.println(balls);
         balls.clear();
-        System.out.println(balls);
     }
 
     @Override
@@ -54,8 +52,7 @@ public class Basket {
 
     @Override
     public String toString() {
-        return getClass().getName() + "{" +
-                "balls=" + balls +
-                '}';
+        return getClass().getName() + "@" +
+                "balls: " + balls;
     }
 }

@@ -40,9 +40,8 @@ public class Ball {
 
     @Override
     public String toString() {
-        return getClass().getName() + "{" +
-                "weight=" + weight +
-                ", color='" + color + '\'' +
-                '}';
+        return getClass().getName() + "@" +
+                "weight: " + weight +
+                ", color: " + color;
     }
 }
