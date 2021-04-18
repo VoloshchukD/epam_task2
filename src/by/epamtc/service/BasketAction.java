@@ -17,7 +17,7 @@ public class BasketAction {
         if (basket == null) throw new NullBasketException("Basket is not created");
         int ballCounter = 0;
         for (Ball ball : basket.getBalls()) {
-            if (ball.getColor() == color) {
+            if (ball != null && ball.getColor() == color) {
                 ballCounter++;
             }
         }
@@ -28,7 +28,9 @@ public class BasketAction {
         if (basket == null) throw new NullBasketException("Basket is not created");
         double ballWeight = 0.0;
         for (Ball ball : basket.getBalls()) {
-            ballWeight += ball.getWeight();
+            if (ball != null) {
+                ballWeight += ball.getWeight();
+            }
         }
         return ballWeight;
     }
