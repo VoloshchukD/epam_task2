@@ -1,10 +1,20 @@
 package by.epamtc.entity;
 
-public class Ball {
+import java.io.Serializable;
+
+public class Ball implements Serializable {
 
     private double weight;
 
     private Color color;
+
+    public Ball() {
+    }
+
+    public Ball(double weight, Color color) {
+        this.weight = weight;
+        this.color = color;
+    }
 
     public double getWeight() {
         return weight;

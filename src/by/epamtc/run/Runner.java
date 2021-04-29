@@ -22,19 +22,12 @@ public class Runner {
 
     public static Ball[] createBalls() {
         Ball[] balls = new Ball[5];
-        balls[0] = createBall(Color.GREEN, 2.2);
-        balls[1] = createBall(Color.RED, 1.3);
-        balls[2] = createBall(Color.BLUE, 3.7);
-        balls[3] = createBall(Color.ORANGE, 2.4);
-        balls[4] = createBall(Color.BLUE, 0.3);
+        balls[0] = new Ball( 2.2, Color.GREEN);
+        balls[1] = new Ball(1.3, Color.RED);
+        balls[2] = new Ball(3.7, Color.BLUE);
+        balls[3] = new Ball(2.4, Color.ORANGE);
+        balls[4] = new Ball(0.3, Color.BLUE);
         return balls;
-    }
-
-    public static Ball createBall(Color color, double weight) {
-        Ball ball = new Ball();
-        ball.setColor(color);
-        ball.setWeight(weight);
-        return ball;
     }
 
 }
